@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+// vanniktech 插件
+apply plugin: 'com.vanniktech.maven.publish'
+// Kotlin Javadoc 插件
+apply plugin: 'org.jetbrains.dokka'
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+
+    }
+
+    sourceSets.main {
+        assets.srcDirs = ['assets']
+        jni.srcDirs = [] //disable automatic ndk-build
+        jniLibs.srcDirs = ['libs']
+    }
+
+    buildTypes {
+        vip_type {
+
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
