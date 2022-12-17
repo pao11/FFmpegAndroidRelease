@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    namespace 'com.pao11.ffmpegandroid'
-    compileSdk 30
+    namespace 'com.ffmpeg.app'
+    compileSdk 31
 
     defaultConfig {
-        applicationId "com.pao11.ffmpegandroid"
+        applicationId "com.ffmpeg.app"
         minSdk 21
-        targetSdk 30
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 

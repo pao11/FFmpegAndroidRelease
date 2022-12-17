@@ -1,4 +1,4 @@
-package com.github.hiteshsondhi88.libffmpeg;
+package com.github.pao11.libffmpeg;
 
 public interface FFmpegExecuteResponseHandler extends ResponseHandler {
 

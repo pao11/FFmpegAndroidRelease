@@ -1,9 +1,9 @@
-package com.github.hiteshsondhi88.libffmpeg;
+package com.github.pao11.libffmpeg;
 
 import java.util.Map;
 
-import com.github.hiteshsondhi88.libffmpeg.exceptions.FFmpegCommandAlreadyRunningException;
-import com.github.hiteshsondhi88.libffmpeg.exceptions.FFmpegNotSupportedException;
+import com.github.pao11.libffmpeg.exceptions.FFmpegCommandAlreadyRunningException;
+import com.github.pao11.libffmpeg.exceptions.FFmpegNotSupportedException;
 
 @SuppressWarnings("unused")
 interface FFmpegInterface {
